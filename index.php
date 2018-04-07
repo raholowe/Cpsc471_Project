@@ -1,6 +1,7 @@
 <?php
 //Verify the session, and redirect to login/create user
-   include('config.php');
+   require('config.php');
+   $link = gamesConnect();
    session_start();
    
    $user_check = $_SESSION['login_user'];
@@ -13,5 +14,8 @@
    
    if(!isset($_SESSION['login_user'])){
       header("location:login.php");
+   } else {
+   	  header("location:welcome.php");
    }
+   gamesClose($link);
 ?>

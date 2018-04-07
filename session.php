@@ -1,6 +1,8 @@
 <?php
    include('config.php');
    session_start();
+
+   $link = gamesConnect();
    
    $user_check = $_SESSION['login_user'];
    
@@ -13,4 +15,5 @@
    if(!isset($_SESSION['login_user'])){
       header("location:login.php");
    }
+   gamesClose($link);
 ?>
