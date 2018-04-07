@@ -62,7 +62,7 @@
                   <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
                   <input type = "submit" value = " Login "/><br />
                </form>
-               <form action = "newUser.php" method = "post">
+               <form action = "createUser.php" method = "post">
                   <input type = "submit" value = " Sign Up"/> <br />
                </form>
                
