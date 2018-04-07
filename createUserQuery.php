@@ -5,7 +5,7 @@
 	$password = $_POST["password"];
 	$time = time();
 	$date=  date('Y-m-d', $time) ;
-	echo $username. "<br>". $email. "<br>";
+	//echo $username. "<br>". $email. "<br>";
 	// Create connection
 	$con=gamesConnect();
 	// Check connection
@@ -15,8 +15,9 @@
 	{
 	die('Error: ' . mysqli_error($con));
 	}
-	else
-	echo "1 record added";
-
+	else {
+	$_SESSION['login_user'] = $username;
+	header("location: welcome.php");
+	}
 	gamesClose($con)
 ?>

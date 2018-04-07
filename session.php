@@ -1,4 +1,5 @@
 <?php
+	//checks to see if there is a session active, and takes you to the right page
    include('config.php');
    session_start();
 
@@ -14,6 +15,6 @@
    
    if(!isset($_SESSION['login_user'])){
       header("location:login.php");
-   }
+   } 
    gamesClose($link);
 ?>
