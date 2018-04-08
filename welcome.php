@@ -29,38 +29,38 @@
    
    	<div>
    		<form action = "searchGames.php" method = "post">
-   			<label> Search for game </label><input type = "text" name = "game"/>
-   			<input type = "submit" value = "Search Games"/><br/>
+   			<input type = "text" name = "game" placeholder="Search Games" />
+   			<input type = "submit" value = "Go!"/><br/>
    		</form>
    	</div>
    	<div>
    		<form action = "searchDevelopers.php" method = "post">
-   			<label> Search for game </label><input type = "text" name = "developer"/>
-   			<input type = "submit" value = "Search Developers"/><br/>
+   			<input type = "text" name = "developer" placeholder="Search Developers"/>
+   			<input type = "submit" value = "Go!"/><br/>
    		</form>
 	</div>
 	<div>
    		<form action = "searchPCs.php" method = "post">
-   			<label> Search for game </label><input type = "text" name = "pc"/>
-   			<input type = "submit" value = "Search Playable Characters"/><br/>
+   			<input type = "text" name = "pc" placeholder="Search Playable Characters"/>
+   			<input type = "submit" value = "Go!"/><br/>
    		</form>
    	</div>
    	<div>
    		<form action = "searchPlatforms.php" method = "post">
-   			<label> Search for game </label><input type = "text" name = "platform"/>
-   			<input type = "submit" value = "Search Platforms"/><br/>
+   			<input type = "text" name = "platform" placeholder="Search Platforms"/>
+   			<input type = "submit" value = "Go!"/><br/>
    		</form>
    	</div>
    	<div>
    		<form action = "searchPublishers.php" method = "post">
-   			<label> Search for game </label><input type = "text" name = "publisher"/>
-   			<input type = "submit" value = "Search Publishers"/><br/>
+   			<input type = "text" name = "publisher" placeholder="Search Publishers" />
+   			<input type = "submit" value = "Go!"/><br/>
    		</form>
    	</div>
    	<div>
    		<form action = "searchTags.php" method = "post">
-   			<label> Search for game </label><input type = "text" name = "game"/>
-   			<input type = "submit" value = "Search Tags"/><br/>
+   			<input type = "text" name = "game" placeholder = "Search Tags"/>
+   			<input type = "submit" value = "Go!"/><br/>
    		</form>
    	</div>
 <?php 

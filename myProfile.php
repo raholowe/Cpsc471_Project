@@ -3,27 +3,33 @@
 
    function myGames() {
    	$db = gamesConnect();
+   	$name = $_SESSION[login_user];
 
    	$sql = "SELECT DISTINCT
 			    GAME.title,GAME.ID
 			FROM
 			    GAME
 			INNER JOIN PLAYED_BY ON PLAYED_BY.game_id = GAME.ID
-			INNER JOIN Users on PLAYED_BY.username = 'admin'";
+			INNER JOIN Users on PLAYED_BY.username = '$name'";
 
-	$tableQ = mysqli_query($db, $sql);
+	$table = mysqli_query($db, $sql);
 
-	echo "<table border='1'>
-		<tr>
-			<th>Title</th>
-		</tr>";
+	$count = mysqli_num_rows($table);
 
-	while($row = mysqli_fetch_array($tableQ) )
-	{
-		echo "<tr>";
-		echo "<td>" . $row['title'] . "</td>";
-		echo "</tr>";
+	if($count == 0) {
+		echo "You have no games in your list!";
+	} else {
+		echo "<br><table border='1'>" ;
+
+		while($row = mysqli_fetch_array($table) )
+		{
+			echo "<tr>";
+			echo "<td>" . $row['title'] . "</td>";
+			echo "</tr>";
+		}
+
 	}
+
    	gamesClose($db);
 
    }
@@ -42,6 +48,7 @@
    		<?php
    		myGames();
    		?>
+   		<a href="viewGames.php"> Add games to your list </a>
    	</div>
     
 <?php
