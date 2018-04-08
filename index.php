@@ -1,14 +1,18 @@
 <?php
 //Verify the session, and redirect to login/create user
+
    require('config.php');
-   $link = gamesConnect();
    session_start();
    
+   $link = gamesConnect();
+   
    $user_check = $_SESSION['login_user'];
+
+   $sql = "SELECT username FROM Users WHERE username = '$user_check' ";
+
+   $result = mysqli_query($link, $sql);
    
-   $ses_sql = mysqli_query($link,"select username from user where username = '$user_check' ");
-   
-   $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
+   $row = mysqli_fetch_array($result); //getting an arror here
    
    $login_session = $row['username'];
    

@@ -9,7 +9,7 @@
       $username = mysqli_real_escape_string($link,$_POST['username']);
       $password = mysqli_real_escape_string($link,$_POST['password']); 
       
-      $sql = "SELECT username, isAdmin FROM USER WHERE username = '$username' and password = '$password'";
+      $sql = "SELECT username, isAdmin FROM Users WHERE username = '$username' and password = '$password'";
       $table = mysqli_query($link,$sql);
       $row = mysqli_fetch_array($table,MYSQLI_ASSOC);
       $isAdmin = $row['isAdmin'];

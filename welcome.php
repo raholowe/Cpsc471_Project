@@ -27,10 +27,6 @@
    }
 ?>
    
-
-   	<div>
-    	<h2><a href = "myProfile.php">My Profile</a></h2>
-   	</div>
    	<div>
    		<form action = "searchGames.php" method = "post">
    			<label> Search for game </label><input type = "text" name = "game"/>
@@ -38,7 +34,7 @@
    		</form>
    	</div>
    	<div>
-   		<form action = "searchDevopers.php" method = "post">
+   		<form action = "searchDevelopers.php" method = "post">
    			<label> Search for game </label><input type = "text" name = "developer"/>
    			<input type = "submit" value = "Search Developers"/><br/>
    		</form>
