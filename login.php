@@ -9,10 +9,11 @@
       $username = mysqli_real_escape_string($link,$_POST['username']);
       $password = mysqli_real_escape_string($link,$_POST['password']); 
       
-      $sql = "SELECT username FROM USER WHERE username = '$username' and password = '$password'";
+      $sql = "SELECT username, isAdmin FROM USER WHERE username = '$username' and password = '$password'";
       $table = mysqli_query($link,$sql);
       $row = mysqli_fetch_array($table,MYSQLI_ASSOC);
-      $active = $row['active'];
+      $isAdmin = $row['isAdmin'];
+      //echo $isAdmin;
       
       $count = mysqli_num_rows($table);
       
@@ -20,6 +21,7 @@
     
       if($count == 1) {
          $_SESSION['login_user'] = $username;
+         $_SESSION['permission'] = $isAdmin;
          header("location: welcome.php");
       }else {
          $error = "Your Login Name or Password is invalid";
@@ -47,7 +49,7 @@
             <div>
                
                <form action = "" method = "post">
-                  <label>UserName  :</label><input type = "text" name = "username"/><br /><br />
+                  <label>UserName  :</label> <input type = "text" name = "username"/> <br /><br />
                   <label>Password  :</label><input type = "password" name = "password"/><br/><br />
                   <input type = "submit" value = " Login "/><br />
                </form>
