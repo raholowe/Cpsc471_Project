@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 09, 2018 at 04:12 AM
+-- Generation Time: Apr 09, 2018 at 04:20 PM
 -- Server version: 5.7.21
 -- PHP Version: 7.1.7
 
@@ -147,10 +147,13 @@ CREATE TABLE `PLAYABLE_CHARACTER` (
 --
 
 INSERT INTO `PLAYABLE_CHARACTER` (`character_name`, `game_id`, `age`, `type`) VALUES
+('Cecil Harvey', 12, NULL, 'Human'),
+('Chocobo', 13, NULL, 'Non-human'),
 ('Link', 5, NULL, 'Human'),
 ('Link', 6, NULL, 'Human'),
 ('Link', 7, NULL, 'Human'),
-('Link', 8, NULL, 'Human');
+('Link', 8, NULL, 'Human'),
+('Mario', 1, NULL, 'Human');
 
 -- --------------------------------------------------------
 
@@ -197,8 +200,11 @@ CREATE TABLE `PLAYED_ON` (
 INSERT INTO `PLAYED_ON` (`ID`, `platform`) VALUES
 (5, 'Family Computer Disk System'),
 (6, 'Family Computer Disk System'),
+(7, 'Nintendo 64'),
 (5, 'Nintendo Entertainment System'),
-(6, 'Nintendo Entertainment System');
+(6, 'Nintendo Entertainment System'),
+(8, 'Nintendo GameCube'),
+(8, 'Wii');
 
 -- --------------------------------------------------------
 
@@ -232,6 +238,13 @@ CREATE TABLE `REVIEW` (
   `score` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `REVIEW`
+--
+
+INSERT INTO `REVIEW` (`game_id`, `username`, `text`, `score`) VALUES
+(1, 'admin', 'The original video game, omg so good', 9);
+
 -- --------------------------------------------------------
 
 --
@@ -254,6 +267,18 @@ CREATE TABLE `TAG_TYPE` (
   `username` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `TAG_TYPE`
+--
+
+INSERT INTO `TAG_TYPE` (`game_id`, `username`, `type`) VALUES
+(7, 'admin', 'Adventure'),
+(7, 'admin', 'Puzzler'),
+(13, 'admin', 'RPG'),
+(7, 'user1', 'Adventure'),
+(13, 'user1', 'RPG'),
+(7, 'user2', 'Adventure');
 
 -- --------------------------------------------------------
 
