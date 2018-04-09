@@ -5,42 +5,45 @@ $db = gamesConnect();
 $sql = "SELECT * FROM GAME WHERE GAME.ID = '$gameID'";
 
 $table = mysqli_query($db, $sql);
-$columns = mysqli_num_fields($table);
+$row = mysqli_fetch_array($table);
+
+echo "<h1>". $row['title'] ."</h1>";
 
 echo "<table border = '1'>
 <tr>
-<th>Title</th>
 <th>Copies Sold</th>
 <th>Release Date</th>
 <th>Developer</th>
 <th>Publisher</th>
-<th>Franchise</th>";
+<th>Franchise</th>
+</tr>";
 
-while($row = mysqli_fetch_array($table)) {
-	echo "<tr>";
-	echo "<td>" . $row['title'] . "</td>";
-	echo "<td>" . $row['copies_sold'] . "</td>";
-	echo "<td>" . $row['release_date'] . "</td>";
-	echo "<td>" . $row['dev_name'] . "</td>";
-	echo "<td>" . $row['pub_name'] . "</td>";
+echo "<tr>";
+echo "<td>" . $row['copies_sold'] . "</td>";
+echo "<td>" . $row['release_date'] . "</td>";
+$goto = "view_dev_details.php?name=" . $row['dev_name'];
+echo "<td><a href=" . $goto . ">". $row['dev_name'] ."</td>";
+$goto = "view_pub_details.php?name=" . $row['pub_name'];
+echo "<td><a href=" . $goto . ">".$row['pub_name'] . "</td>";
 
-	$collect = $row['collection_id'];
+$collect = $row['collection_id'];
 
-	$fQ = "SELECT 
-			    COLLECTION.name
-			FROM
-			    COLLECTION
-			WHERE COLLECTION.ID = " .$collect;
+$fQ = "SELECT 
+		    COLLECTION.name
+		FROM
+		    COLLECTION
+		WHERE COLLECTION.ID = " .$collect;
 
-	$franchise = mysqli_query($db, $fQ);
-	$franRow = mysqli_fetch_array($franchise);
+$franchise = mysqli_query($db, $fQ);
+$franRow = mysqli_fetch_array($franchise);
 
-	echo "<td>" . $franRow['name'] . "</td>";
+$goto = "view_franchise_details.php?ID=" . $collect;
+echo "<td><a href=". $goto . ">" . $franRow['name'] . "</td>";
 
 
-	echo "</tr>";
+echo "</tr>";
 
-}
+
 
 gamesClose($db);
 ?>
