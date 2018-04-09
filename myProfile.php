@@ -17,7 +17,7 @@
 	$count = mysqli_num_rows($table);
 
 	if($count == 0) {
-		echo "You have no games in your list!";
+		echo "You have no games in your list! <br>";
 	} else {
 		echo "<br><table border='1'>" ;
 
@@ -31,13 +31,13 @@
 		}
 
 	}
+	echo "</table>";
 
    	gamesClose($db);
 
    }
    
 ?>
-
    	<div>
     	<h1>
     		<?php
@@ -50,7 +50,7 @@
    		<?php
    		myGames();
    		?>
-   		<a href="viewGames.php"> Add games to your list </a>
+   		<a href="view_all_games.php"> Add games to your list! </a>
    	</div>
     
 <?php
