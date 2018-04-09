@@ -21,9 +21,13 @@ echo "<table border = '1'>
 echo "<tr>";
 echo "<td>" . $row['copies_sold'] . "</td>";
 echo "<td>" . $row['release_date'] . "</td>";
-$goto = "view_dev_details.php?name=" . $row['dev_name'];
+
+$sendName = urlencode($row['dev_name']);
+$goto = "view_dev_details.php?name=" . $sendName;
 echo "<td><a href=" . $goto . ">". $row['dev_name'] ."</td>";
-$goto = "view_pub_details.php?name=" . $row['pub_name'];
+
+$sendName = urlencode($row['pub_name']);
+$goto = "view_pub_details.php?name=" . $sendName;
 echo "<td><a href=" . $goto . ">".$row['pub_name'] . "</td>";
 
 $collect = $row['collection_id'];

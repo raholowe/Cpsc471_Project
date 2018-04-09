@@ -32,8 +32,13 @@ echo "<tr>";
 $goto = "view_game_details.php?key=" . $row['ID'];
 echo "<td><a href=" . $goto . ">". $row['title'] ."</td>";
 echo "<td>" . $row['release_date'] . "</td>";
+echo "</tr>";
 
 }
+echo "</table>";
+
+echo '<a href=view_all_franchise.php>View All Franchises </a>';
+gamesClose($db);
 
 //echo "<h2>Region: " . $row['region'] . "</h2>";
 ?>
