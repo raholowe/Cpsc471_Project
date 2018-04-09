@@ -23,8 +23,10 @@
 
 		while($row = mysqli_fetch_array($table) )
 		{
+			$goto = "view_game_details.php?key=" . $row['ID'];
 			echo "<tr>";
 			echo "<td>" . $row['title'] . "</td>";
+			echo "<td><a href=".$goto.">View</a>" . "</td>";
 			echo "</tr>";
 		}
 
