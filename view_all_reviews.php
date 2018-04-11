@@ -2,8 +2,10 @@
 include('session.php');
 echo "<h1>Reviews</h1>";
 
+$sortBy = $_GET['mode'];
+
 $db = gamesConnect();
-$sql = "SELECT * FROM REVIEW";
+$sql = "SELECT * FROM REVIEW ORDER BY REVIEW.score " . $sortBy;
 
 $table = mysqli_query($db, $sql);
 $count = mysqli_num_rows($table);
@@ -11,18 +13,30 @@ $count = mysqli_num_rows($table);
 if($count == 0) {
 	echo "There are no reviews.";
 } else {
+
+	if($sortBy == DESC){
+		$switchTo = "ASC";
+	} else {
+		$switchTo = "DESC";
+	}
+
+	$goto = "view_all_reviews.php?mode=" . $switchTo;
 	echo "<table border = '1'>
 		<tr>
 		<th>Title</th>
 		<th>Review</th>
-		<th>Score</th>
+		
+		<th>Score <a href=" .$goto . ">(" . $sortBy .")</a></th>
 		</tr>";
 
 	while($row = mysqli_fetch_array($table)) {
 		echo "<tr>";
 		$goto = "view_game_details.php?key=" . $row['game_id']; 
-		$title = "Test";
-		echo "<td><a href=" . $goto . ">". $title ."</td>";
+
+		$gNQ = "SELECT GAME.title FROM GAME WHERE GAME.ID =" .$row['game_id'];
+		$gameT = mysqli_query($db,$gNQ);
+		$title = mysqli_fetch_array($gameT);
+		echo "<td><a href=" . $goto . ">". $title['title'] ."</td>";
 		$goto = "view_review_details.php?ID=". $row['game_id'] . "&name=" . $row['username'];
 		echo "<td>" . $row['text'] . "<p><a href=" . $goto . ">See more</p></td>";
 		echo "<td>" . $row['score'] . "</td>";
