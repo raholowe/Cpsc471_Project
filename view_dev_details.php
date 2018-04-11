@@ -40,6 +40,7 @@ while($row = mysqli_fetch_array($table)) {
 	echo "</tr>";
 }
 echo "</table>";
-echo '<a href=view_all_dev.php>View All Developers </a>';
 gamesClose($db);
+include('footer.php');
+
 ?>

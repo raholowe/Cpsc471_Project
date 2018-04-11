@@ -37,8 +37,9 @@ echo "</tr>";
 }
 echo "</table>";
 
-echo '<a href=view_all_franchise.php>View All Franchises </a>';
 gamesClose($db);
+include('footer.php');
+
 
 //echo "<h2>Region: " . $row['region'] . "</h2>";
 ?>

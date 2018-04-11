@@ -40,6 +40,7 @@ while($row = mysqli_fetch_array($table)) {
 	echo "</tr>";
 }
 echo "</table>";
-echo '<a href=view_all_pub.php>View All Publishers </a>';
+
 gamesClose($db);
+include('footer.php');
 ?>

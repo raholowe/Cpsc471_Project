@@ -46,9 +46,9 @@ echo "<td><a href=". $goto . ">" . $franRow['name'] . "</td>";
 
 
 echo "</tr>";
-
-
+echo "</table>";
 
 gamesClose($db);
+include('footer.php');
 ?>
 

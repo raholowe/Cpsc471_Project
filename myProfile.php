@@ -25,16 +25,13 @@
 		{
 			$goto = "view_game_details.php?key=" . $row['ID'];
 			echo "<tr>";
-			echo "<td>" . $row['title'] . "</td>";
-			echo "<td><a href=".$goto.">View</a>" . "</td>";
+			echo "<td><a href=".$goto.">". $row['title'] . "</a>" . "</td>";
 			echo "</tr>";
 		}
 
 	}
 	echo "</table>";
-
    	gamesClose($db);
-
    }
    
 ?>
@@ -47,10 +44,11 @@
    	</div>
    	<div>
    		<h2> My Games </h2>
+   		<a href="view_all_games.php"> Add games to your list! </a>
+
    		<?php
    		myGames();
    		?>
-   		<a href="view_all_games.php"> Add games to your list! </a>
    	</div>
     
 <?php
