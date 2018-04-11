@@ -4,6 +4,7 @@
 		<a href="view_all_dev.php">All Developers</a>	|
 		<a href="view_all_franchise.php">All Franchises</a>	|
 		<a href="view_all_platforms.php">All Platforms</a>	|
+		<a href="view_all_characters.php">All Characters</a>	|
 		<a href="view_all_reviews.php">All Reviews</a>
 
 	</footer>
