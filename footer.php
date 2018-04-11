@@ -1,8 +1,11 @@
-	<footer>
-  		<a href="view_all_games.php">View All Games</a>	|
-		<a href="view_all_pub.php">View All Publishers</a>	|
-		<a href="view_all_dev.php">View All Developers</a>	|
-		<a href="view_all_franchise.php">View All Franchises</a>	|
+	<footer class = "navbar fixed-bottom">
+  		<a href="view_all_games.php">All Games</a>	|
+		<a href="view_all_pub.php">All Publishers</a>	|
+		<a href="view_all_dev.php">All Developers</a>	|
+		<a href="view_all_franchise.php">All Franchises</a>	|
+		<a href="view_all_platforms.php">All Platforms</a>	|
+		<a href="view_all_reviews.php">All Reviews</a>
+
 	</footer>
 
 

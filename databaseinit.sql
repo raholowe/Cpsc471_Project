@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 09, 2018 at 04:20 PM
+-- Generation Time: Apr 11, 2018 at 09:36 PM
 -- Server version: 5.7.21
 -- PHP Version: 7.1.7
 
@@ -60,6 +60,7 @@ CREATE TABLE `DEVELOPER` (
 --
 
 INSERT INTO `DEVELOPER` (`dev_name`, `lead`, `team_size`, `region`) VALUES
+('2K Games', NULL, NULL, 'North America'),
 ('Nintendo', NULL, NULL, 'Japan'),
 ('Square Enix', NULL, NULL, 'Japan');
 
@@ -222,6 +223,7 @@ CREATE TABLE `PUBLISHER` (
 --
 
 INSERT INTO `PUBLISHER` (`pub_name`, `region`) VALUES
+('Microsoft Studios', 'North America'),
 ('Nintendo', 'Japan'),
 ('Square Enix', 'Japan');
 
