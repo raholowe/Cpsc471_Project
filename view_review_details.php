@@ -15,12 +15,14 @@ if($count == 0) {
 	echo "SOMETHING IS WRONG";
 } else {
 	$row = mysqli_fetch_array($table);
+	echo "Review by: " . $row['username'] . "<br>";
 	echo "Score: " . $row['score'];
 	echo "<br>";
 	echo $row['text'];
 	echo "<br>";
 }
 
+//if the current user wrote this review, let them edit it
 if($user == $name) {
 	echo "Edit Button";
 }
