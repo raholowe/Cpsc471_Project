@@ -6,7 +6,7 @@
 
 body
 {
-	background-image: url("IMG/color-space-invader.jpg");
+	background-image: url("color-space-invader.jpg");
 	height: 100px;
 	background-size:cover;
 	background-position: center;
@@ -29,17 +29,6 @@ div.transbox
 	font-weight: 10;
 	font-size: 15px;
 } 
-
-.display 
-{
-  fill:  100%;
-  width:100%;
-  height:100%;
-  position:absolute;
-  overflow:hidden;
-}
-
-
 
 h1
 {
@@ -84,23 +73,6 @@ h1
 	border: 1px solid white;
 }
 
-.container1
-{
-    float: left;
-}
-
-.container2
-{
-    margin: 10 auto;
-    margin-top: 10px;
-    position: relative;
-    float: left;
-    width: 50%;
-    height: 0;
-    padding-bottom: 40%;
-    background: grey;
-    border: solid: 10px lightgrey;
-}
 
 .container3
 {

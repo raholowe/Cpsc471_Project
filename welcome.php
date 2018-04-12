@@ -115,7 +115,7 @@
                        </div> 
                      </div> 
                   <div class="images"> 
-                  <img src="IMG/slide1.png"> 
+                  <img src="slide1.png"> 
                   </div> 
             </div> 
 
@@ -135,7 +135,7 @@
             </div> 
             </div> 
             <div class="images"> 
-               <img src="IMG/slide2.png"> 
+               <img src="slide2.png"> 
             </div> 
          </div> 
 
@@ -148,7 +148,7 @@
                </div> 
             </div> 
          <div class="images"> 
-            <img src="IMG/slide3.png"> 
+            <img src="slide3.png"> 
          </div> 
       </div> 
    </div>
