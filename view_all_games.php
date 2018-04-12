@@ -74,11 +74,13 @@ if($count == 0) {
 				    COLLECTION
 				WHERE COLLECTION.ID = " .$collect;
 
-		$franchise = mysqli_query($db, $fQ);
-		$franRow = mysqli_fetch_array($franchise);
-
-		$goto = "view_franchise_details.php?ID=" . $collect;
-		echo "<td><a href=". $goto . ">" . $franRow['name'] . "</td>";
+		if(!$franchise = mysqli_query($db, $fQ)){
+			echo "<td></td>";
+		} else {
+			$franRow = mysqli_fetch_array($franchise);
+			$goto = "view_franchise_details.php?ID=" . $collect;
+			echo "<td><a href=". $goto . ">" . $franRow['name'] . "</td>";
+		}
 
 		$tag_query = "SELECT DISTINCT TAG_TYPE.type FROM TAG_TYPE WHERE TAG_TYPE.game_id = " . $row['ID'];
 		$tag_table = mysqli_query($db, $tag_query);
@@ -95,14 +97,15 @@ if($count == 0) {
 		if($_SESSION['permission'] == 1) {
 			echo "<td>";
 		echo "<form action = \"deleteGameQuery.php\" method = \"post\">
-				<input type=\"hidden\" name=\"title\" value=\"". $row['ID'] ."\">
+				<input type=\"hidden\" name=\"ID\" value=\"";
+		echo $row['ID'] ."\">
 				<button type=\"submit\" name=\"delete_game\" >Delete</button>
 			</form>";
 		echo "</td>";
 
 			echo "<td>";
 		echo "<form action = \"editGame.php\" method = \"post\">
-				<input type=\"hidden\" name=\"title\" value=\"". $row['ID'] ."\">
+				<input type=\"hidden\" name=\"ID\" value=\"". $row['ID'] ."\">
 				<button type=\"submit\" name=\"edit_game\" >Edit</button>
 			</form>";
 		echo "</td>";

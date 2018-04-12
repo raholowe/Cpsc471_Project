@@ -48,11 +48,14 @@ $fQ = "SELECT
 		    COLLECTION
 		WHERE COLLECTION.ID = " .$collect;
 
-$franchise = mysqli_query($db, $fQ);
-$franRow = mysqli_fetch_array($franchise);
+if($franchise = mysqli_query($db, $fQ)) {
+	$franRow = mysqli_fetch_array($franchise);
+	$goto = "view_franchise_details.php?ID=" . $collect;
+	echo "<td><a href=". $goto . ">" . $franRow['name'] . "</td>";
+} else {
+	echo "<td></td>";
+}
 
-$goto = "view_franchise_details.php?ID=" . $collect;
-echo "<td><a href=". $goto . ">" . $franRow['name'] . "</td>";
 
 
 echo "</tr>";

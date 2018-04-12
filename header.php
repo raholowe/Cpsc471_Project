@@ -25,17 +25,22 @@
                 if(isset($_SESSION['login_user'])){
                         echo '
                         	<li class = "nav-item ">
-            					<a class = "nav-link" href ="welcome.php">Home</a>
-            				</li><li class="nav-item">
+            					     <a class = "nav-link" href ="welcome.php">Home</a>
+            				      </li>
+                          <li class="nav-item">
                         		<a class="nav-link" href="myProfile.php">My Profile</a>
-                        	</li>
-            				
-            				<li class="nav-item">
-            					<a class = "nav-link" href ="logout.php">Logout</a>
-            				</li>
-            				</ul>
-            				<ul>
-					    ';			
+                        	</li>';
+
+                          if($_SESSION['permission'] == 1) {
+                            echo '<li class="nav-item">
+                                    <a class = "nav-link" href ="add.php">Admin</a>
+                                   </li>';
+                          }
+                        echo '
+                  				<li class="nav-item">
+                  					<a class = "nav-link" href ="logout.php">Logout</a>
+                  				</li>';
+                  				 		
                 }else{
                     echo '<li><a href ="index.php">Home</a></li>';
                 }
