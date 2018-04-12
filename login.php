@@ -31,28 +31,28 @@
 
 ?>
 <html>
-   
    <head>
       <title>Login Page</title>
-      
-    
-      <link rel="stylesheet" type="text/css" href="style.css">
-      
+      <link href="mystyle.css" rel="stylesheet" type="text/css">
    </head>
    
-   <body bgcolor = "#FFFFFF">
-  
+   <body>
+   <div class ="row">
+      <ul class="help-nav">
+      <li><a href="about.html"> ABOUT </a></li>
+      <li><a href="help.html"> HELP </a></li>
+      </ul>
+   </div>
       <div align = "center">
-         <div  align = "left">
-            <div ><b>Login</b></div>
-        
-            <div>
-               
+         <div  align = "center">
+            <div class ="transbox">
                <form action = "" method = "post">
-                  <label>UserName  :</label> <input type = "text" name = "username"/> <br /><br />
+                  <h1>Login</h2>
+                  <label>Username  :</label><input type = "text" name = "username"/> <br /><br />
                   <label>Password  :</label><input type = "password" name = "password"/><br/><br />
                   <input type = "submit" value = " Login "/><br />
                </form>
+               <label>Don't have an account? Create one!</label>
                <form action = "createUser.php" method = "post">
                   <input type = "submit" value = " Sign Up"/> <br />
                </form>
