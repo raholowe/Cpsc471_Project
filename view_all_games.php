@@ -43,6 +43,7 @@ if($count == 0) {
 
 	if($_SESSION['permission'] == 1) {
 		echo "<th> Delete </th>";
+		echo "<th> Edit </th>";
 	}
 
 	echo "</tr>";
@@ -98,6 +99,13 @@ if($count == 0) {
 				<button type=\"submit\" name=\"delete_game\" >Delete</button>
 			</form>";
 		echo "</td>";
+
+			echo "<td>";
+		echo "<form action = \"editGame.php\" method = \"post\">
+				<input type=\"hidden\" name=\"title\" value=\"". $row['ID'] ."\">
+				<button type=\"submit\" name=\"edit_game\" >Edit</button>
+			</form>";
+		echo "</td>";
 		}
 
 		echo "</tr>";
@@ -105,6 +113,11 @@ if($count == 0) {
 
 }
 echo "</table>";
+
+if($_SESSION['permission'] == 1) {
+		echo "<a href=\"add.php\">Manage Database</a>";
+}
+
 
 gamesClose($db);
 
