@@ -28,9 +28,9 @@
 		$count = mysqli_num_rows($table);
 
 		if($count == 0) {
-		echo "<br>You have no reviews <br>";
+		echo "You have no reviews <br>";
 		} else {
-		echo "<br><table border='1'>" ;
+		echo "<table border='1'>" ;
 		echo '<tr>
 				<th>Title</th>
 				<th>Review</th>
@@ -73,13 +73,42 @@
 		echo "<br>You have no games in your list! <br>";
 	} else {
 		echo "<br><table border='1'>" ;
+		echo '<tr>
+				<th>Title</th>
+				<th>Remove</th>';
+				//<th>Add Tags</th>
+
+		echo '</tr>';
 
 		while($row = mysqli_fetch_array($table) )
 		{
 			$goto = "view_game_details.php?key=" . $row['ID'];
 			echo "<tr>";
 			echo "<td><a href=".$goto.">". $row['title'] . "</a>" . "</td>";
+
+			echo "<td>";
+			echo "<form action = \"removeFromMyGames.php\" method = \"post\">
+					<input type=\"hidden\" name=\"ID\" value=\"" . $row['ID'] ."\">
+					<input type=\"hidden\" name=\"username\" value=\"" . $name . "\">
+					<button type=\"submit\" name=\"remove_MG\" >Remove</button>
+				</form>";
+			echo "</td>";
+
+			//echo "<td>";
+			//echo "<form action = \"addTag.php\" method = \"post\">
+			//		<input type=\"hidden\" name=\"ID\" value=\"". $row['ID'] ."\">
+			//		<button type=\"submit\" name=\"edit_game\" >Add Tags</button>
+			//	</form>";
+			//echo "</td>";
+
+
+
+
+
+
 			echo "</tr>";
+
+
 		}
 
 	}
@@ -108,6 +137,7 @@
    		<?php
    		myGames();
    		?>
+   		<br>
    		<h2> My Reviews </h2>
    		<?php
    		myReviews();
