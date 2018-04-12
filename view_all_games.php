@@ -92,6 +92,10 @@ if($count == 0) {
 			echo $tag_row['type'];
 			echo "</a>, ";
 		}
+
+		$goto = "addTag.php?ID=" . $row['ID'];
+		echo "<a href=" . $goto . ">Add a tag";
+		echo "</a>";
 		echo "</td>";
 
 		if($_SESSION['permission'] == 1) {
