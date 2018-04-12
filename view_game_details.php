@@ -9,6 +9,16 @@ $row = mysqli_fetch_array($table);
 
 echo "<h1>". $row['title'] ."</h1>";
 
+$name = $_SESSION[login_user];
+
+$doesExist = " SELECT game_id from PLAYED_BY WHERE PLAYED_BY.username = '$name' AND PLAYED_BY.game_id = '$gameID' ";
+$bool = mysqli_query($db,$doesExist);
+if( mysqli_num_rows($bool) == 0 ){
+	$goto = "addToMyGames.php?ID=".$gameID;
+	echo "<h4> <a href=".$goto.">+ Add to My Games</a></h4>";
+} else {
+}
+
 echo "<table border = '1'>
 <tr>
 <th>Copies Sold</th>

@@ -10,7 +10,7 @@
 	$con=gamesConnect();
 	// Check connection
 
-	$sql = "INSERT INTO USER (username, join_date, community_score, password, email) VALUES ('$username','$date', '0' ,'$password','$email')";
+	$sql = "INSERT INTO Users (username, join_date, community_score, password, email, isAdmin) VALUES ('$username','$date', '0' ,'$password','$email','0')";
 	if (!mysqli_query($con,$sql))
 	{
 	die('Error: ' . mysqli_error($con));

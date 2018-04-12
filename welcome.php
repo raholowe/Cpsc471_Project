@@ -63,6 +63,12 @@
    			<input type = "submit" value = "Go!"/><br/>
    		</form>
    	</div>
+      <div>
+         <form action = "searchCollection.php" method = "post">
+            <input type = "text" name = "game" placeholder = "Search Franchises"/>
+            <input type = "submit" value = "Go!"/><br/>
+         </form>
+      </div>
 <?php 
 	include('footer.php') 
 ?>

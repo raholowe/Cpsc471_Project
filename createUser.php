@@ -25,7 +25,7 @@
                   <input type = "submit" value = " Create Account "/><br />
                </form>
                
-               <div><?php echo $error; ?></div>
+               <div></div>
           
             </div>
         
