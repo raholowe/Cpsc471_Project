@@ -48,3 +48,6 @@ include('session.php');
   <input type = "submit" value = " Create Account "/><br />
 </form>
 </div>
+ <?php
+ include('footer.php');
+ ?>

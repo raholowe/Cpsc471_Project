@@ -2,6 +2,8 @@
 include('session.php');
 $sortBy = $_GET['mode'];
 $sortCol = $_GET['col'];
+$arrow = "&uarr;";
+
 
 $db = gamesConnect();
 $sql = "SELECT * FROM Users ORDER BY Users.". $sortCol . " " . $sortBy;
@@ -15,18 +17,22 @@ if($count == 0) {
 
 	if($sortBy == DESC){
 		$switchTo = "ASC";
+		$arrow = "&darr;";
+
 	} else {
 		$switchTo = "DESC";
+		$arrow = "&uarr;";
+
 	}
 
 	$goto = "deleteUser.php?mode=" . $switchTo;
 	echo "<table border = '1'>
 		<tr>
-		<th>Username <a href=" .$goto . "&col=username>(" . $sortBy .")</a></th>
-		<th>Community Score<a href=" .$goto . "&col=community_score>(" . $sortBy .")</a></th>
-		<th>Email<a href=" .$goto . "&col=email>(" . $sortBy .")</a></th>
+		<th>Username <a href=" .$goto . "&col=username>(" . $arrow .")</a></th>
+		<th>Community Score<a href=" .$goto . "&col=community_score>(" . $arrow .")</a></th>
+		<th>Email<a href=" .$goto . "&col=email>(" . $arrow .")</a></th>
 		
-		<th>Admin?<a href=" .$goto . "&col=isAdmin>(" . $sortBy .")</a></th>
+		<th>Admin?<a href=" .$goto . "&col=isAdmin>(" . $arrow .")</a></th>
 		<th>Delete</th>
 		</tr>";
 

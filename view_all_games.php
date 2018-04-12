@@ -2,10 +2,14 @@
 include('session.php');
 echo "<h1>All games</h1>";
 
+$sortBy = $_GET['mode'];
+$sortCol = $_GET['col'];
+$arrow = "&uarr;";
+
 $db = gamesConnect();
 $name = $_SESSION[login_user];
 
-$sql = "SELECT * FROM GAME";
+$sql = "SELECT * FROM GAME ORDER BY GAME.". $sortCol . " " . $sortBy;;
 
 $table = mysqli_query($db, $sql);
 
@@ -14,16 +18,34 @@ $count = mysqli_num_rows($table);
 if($count == 0) {
 	echo "The database is empty <br>";
 } else {
+
+	if($sortBy == DESC){
+		$switchTo = "ASC";
+		$arrow = "&darr;";
+
+	} else {
+		$switchTo = "DESC";
+		$arrow = "&uarr;";
+	}
+	$goto = "view_all_games.php?mode=" . $switchTo;
+	
+	//	<th>Username <a href=" .$goto . "&col=username>(" . $sortBy .")</a></th>
+
 	echo "<table border = '1'>
 			<tr>
-			<th>Title</th>
-			<th>Copies Sold</th>
-			<th>Release Date</th>
-			<th>Developer</th>
-			<th>Publisher</th>
-			<th>Franchise</th>
-			<th>Tags</th>
-			</tr>";
+			<th>Title<a href=" .$goto . "&col=title> (" . $arrow .")</a></th>
+			<th>Copies Sold<a href=" .$goto . "&col=copies_sold> (" . $arrow .")</a></th>
+			<th>Release Date<a href=" .$goto . "&col=release_date> (" . $arrow .")</a></th>
+			<th>Developer<a href=" .$goto . "&col=dev_name> (" . $arrow .")</a></th>
+			<th>Publisher<a href=" .$goto . "&col=pub_name> (" . $arrow .")</a></th>
+			<th>Franchise<a href=" .$goto . "&col=collection_id> (" . $arrow .")</a></th>
+			<th>Tags</th>";
+
+	if($_SESSION['permission'] == 1) {
+		echo "<th> Delete </th>";
+	}
+
+	echo "</tr>";
 
 	while($row = mysqli_fetch_array($table) )
 	{
@@ -68,6 +90,15 @@ if($count == 0) {
 			echo "</a>, ";
 		}
 		echo "</td>";
+
+		if($_SESSION['permission'] == 1) {
+			echo "<td>";
+		echo "<form action = \"deleteGameQuery.php\" method = \"post\">
+				<input type=\"hidden\" name=\"title\" value=\"". $row['ID'] ."\">
+				<button type=\"submit\" name=\"delete_game\" >Delete</button>
+			</form>";
+		echo "</td>";
+		}
 
 		echo "</tr>";
 	}
