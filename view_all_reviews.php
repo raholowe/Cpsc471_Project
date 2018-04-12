@@ -9,6 +9,7 @@ $sql = "SELECT * FROM REVIEW ORDER BY REVIEW.score " . $sortBy;
 
 $table = mysqli_query($db, $sql);
 $count = mysqli_num_rows($table);
+$arrow = "&uarr;";
 
 if($count == 0) {
 	echo "There are no reviews.";
@@ -16,17 +17,20 @@ if($count == 0) {
 
 	if($sortBy == DESC){
 		$switchTo = "ASC";
+		$arrow = "&darr;";
 	} else {
 		$switchTo = "DESC";
+		$arrow = "&uarr;";
 	}
 
 	$goto = "view_all_reviews.php?mode=" . $switchTo;
 	echo "<table border = '1'>
 		<tr>
-		<th>Title</th>
+		<th>Title </th>
+
 		<th>Review</th>
 		
-		<th>Score <a href=" .$goto . ">(" . $sortBy .")</a></th>
+		<th>Score <a href=" .$goto . ">(" . $arrow .")</a></th>
 		</tr>";
 
 	while($row = mysqli_fetch_array($table)) {

@@ -33,7 +33,11 @@ if($count == 0) {
 
 //if the current user wrote this review, let them edit it
 if($user == $name) {
-	echo "Edit Button";
+	echo '<form action = "editReview.php" method = "get">
+			<input type = "hidden" name = "ID" value = "' . $_GET['ID']. '">';
+	echo 	'<input type = "hidden" name = "username" value = "' . $name . '">';
+   	echo '	<input type = "submit" value = "Edit Review"/><br/> </form>';
+
 }
 
 

@@ -16,7 +16,7 @@ include('session.php');
 	<form action = "updateReviewQuery.php" method = "post" id = "updateReview">
 		<textarea required form="updateReview" name="text" rows = "8" cols ="75"><?php
 				$id = $_GET['ID'];
-				$user = $_GET['username'];
+				$user = $_SESSION['login_user'];
 				$db = gamesConnect();
 				$sql = "SELECT * FROM REVIEW WHERE REVIEW.game_id = '$id' AND REVIEW.username = \"$user\" ";
 				$table = mysqli_query($db,$sql);
@@ -43,7 +43,7 @@ include('session.php');
 		echo '<input type = "hidden" name = "username" value = "' . $_GET['username']. '">';
 		?>
 		
-		<input type = "submit" value = "Edit review"/><br />
+		<input type = "submit" value = "Save"/><br />
 	</form>
 		<?php
 		echo '<a href = "deleteReview.php?ID='.$_GET['ID']. '&username='.$_GET['username'].'">Delete your review</a>';
