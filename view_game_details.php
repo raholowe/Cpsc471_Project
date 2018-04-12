@@ -48,6 +48,18 @@ echo "<td><a href=". $goto . ">" . $franRow['name'] . "</td>";
 echo "</tr>";
 echo "</table>";
 
+echo "Tagged with: ";
+
+$tag_query = "SELECT DISTINCT TAG_TYPE.type FROM TAG_TYPE WHERE TAG_TYPE.game_id = " . $row['ID'];
+$tag_table = mysqli_query($db, $tag_query);
+
+while($tag_row = mysqli_fetch_array($tag_table)) {
+	$goto = "view_gamesByTag.php?tag=" . $tag_row['type'];
+	echo "<a href=" . $goto . ">";
+	echo $tag_row['type'];
+	echo "</a>, ";
+}
+
 gamesClose($db);
 include('footer.php');
 ?>

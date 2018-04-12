@@ -1,11 +1,12 @@
 <?php
 include('session.php');
-echo "<h1>All games</h1>";
-
+echo "<h1>Games tagged with: ";
+$searchTag = $_GET['tag'];
+echo $searchTag . "</h1>";
 $db = gamesConnect();
 $name = $_SESSION[login_user];
 
-$sql = "SELECT * FROM GAME";
+$sql = "SELECT DISTINCT TAG_TYPE.game_id FROM TAG_TYPE WHERE TAG_TYPE.type = \"" . $searchTag . "\"" ;
 
 $table = mysqli_query($db, $sql);
 
@@ -22,11 +23,15 @@ if($count == 0) {
 			<th>Developer</th>
 			<th>Publisher</th>
 			<th>Franchise</th>
-			<th>Tags</th>
 			</tr>";
 
-	while($row = mysqli_fetch_array($table) )
+	while($tagged_gameID = mysqli_fetch_array($table) )
 	{
+		$game_name = "SELECT * from GAME where GAME.ID = " . $tagged_gameID['game_id'];
+		
+		$gameTable = mysqli_query($db, $game_name);
+		$row = mysqli_fetch_array($gameTable);
+
 		echo "<tr>";
 
 		$goto = "view_game_details.php?key=" . $row["ID"];
@@ -50,25 +55,12 @@ if($count == 0) {
 				FROM
 				    COLLECTION
 				WHERE COLLECTION.ID = " .$collect;
-
+		
 		$franchise = mysqli_query($db, $fQ);
 		$franRow = mysqli_fetch_array($franchise);
 
 		$goto = "view_franchise_details.php?ID=" . $collect;
 		echo "<td><a href=". $goto . ">" . $franRow['name'] . "</td>";
-
-		$tag_query = "SELECT DISTINCT TAG_TYPE.type FROM TAG_TYPE WHERE TAG_TYPE.game_id = " . $row['ID'];
-		$tag_table = mysqli_query($db, $tag_query);
-
-		echo "<td>";
-		while($tag_row = mysqli_fetch_array($tag_table)) {
-			$goto = "view_gamesByTag.php?tag=" . $tag_row['type'];
-			echo "<a href=" . $goto . ">";
-			echo $tag_row['type'];
-			echo "</a>, ";
-		}
-		echo "</td>";
-
 		echo "</tr>";
 	}
 
