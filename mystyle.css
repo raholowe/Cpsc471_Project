@@ -1,0 +1,136 @@
+*
+{
+	margin: 10;
+	padding: 10;
+}
+
+body
+{
+	background-image: url("IMG/color-space-invader.jpg");
+	height: 100px;
+	background-size:cover;
+	background-position: center;
+	background-blend-mode: soft-light;
+	opacity: 0.75;
+}
+
+div.transbox
+ {
+	margin: 20px;
+	padding: 15px;
+	background-color: #ffffff;
+	border: 1px solid black;
+	opacity 0.1;
+}
+
+.transbox div
+{
+	font-family: "Roboto", san-serif;
+	font-weight: 10;
+	font-size: 15px;
+} 
+
+.display 
+{
+  fill:  100%;
+  width:100%;
+  height:100%;
+  position:absolute;
+  overflow:hidden;
+}
+
+
+
+h1
+{
+	color: black;
+	font-family: "Roboto", san-serif;
+	font-size: 30px;
+	align-content: center;
+	padding: 5px;
+	margin: 5px;
+}
+
+
+.help-nav
+{
+	float: right;
+	list-style: none;
+	margin-top 30px;
+}
+
+.help-nav li
+{
+	display: inline-block;
+}
+
+.help-nav li a
+{
+	color: white;
+	text-decoration: none;
+	padding: 5px 20px 20px;
+	margin: 0px 0px 20px;
+	font-family: "Roboto", san-serif;
+	font-size: 15px;
+}
+
+.help-nav li.active a
+{
+	border: 1px solid white;
+}
+
+.help-nav li a:hover
+{
+	border: 1px solid white;
+}
+
+.container1
+{
+    float: left;
+}
+
+.container2
+{
+    margin: 10 auto;
+    margin-top: 10px;
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 0;
+    padding-bottom: 40%;
+    background: grey;
+    border: solid: 10px lightgrey;
+}
+
+.container3
+{
+    margin: 10 auto;
+    margin-top: 10px;
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 0;
+    padding-bottom: 40%;
+    background: grey;
+    border: solid: 10px lightgrey;
+}
+
+.slide_img
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slide_img img
+{
+    width: 100%;
+    height: 100%;
+}
+
+.welcomePage
+{
+    position: relative;
+    margin: auto;
+    float: left;
+}
