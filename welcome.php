@@ -28,44 +28,44 @@
 ?>
    
    	<div>
-   		<form action = "searchGames.php" method = "post">
-   			<input type = "text" name = "game" placeholder="Search Games" />
+   		<form action = "searchGameQuery.php" method = "get">
+   			<input type = "text" name = "search" placeholder="Search Games" />
    			<input type = "submit" value = "Go!"/><br/>
    		</form>
    	</div>
    	<div>
-   		<form action = "searchDevelopers.php" method = "post">
-   			<input type = "text" name = "developer" placeholder="Search Developers"/>
+   		<form action = "searchDeveloperQuery.php" method = "get">
+   			<input type = "text" name = "search" placeholder="Search Developers"/>
    			<input type = "submit" value = "Go!"/><br/>
    		</form>
-	</div>
-	<div>
-   		<form action = "searchPCs.php" method = "post">
-   			<input type = "text" name = "pc" placeholder="Search Playable Characters"/>
-   			<input type = "submit" value = "Go!"/><br/>
-   		</form>
-   	</div>
-   	<div>
-   		<form action = "searchPlatforms.php" method = "post">
-   			<input type = "text" name = "platform" placeholder="Search Platforms"/>
-   			<input type = "submit" value = "Go!"/><br/>
-   		</form>
-   	</div>
-   	<div>
-   		<form action = "searchPublishers.php" method = "post">
-   			<input type = "text" name = "publisher" placeholder="Search Publishers" />
+      </div>
+      <div>
+         <form action = "searchPublisherQuery.php" method = "get">
+            <input type = "text" name = "search" placeholder="Search Publishers" />
+            <input type = "submit" value = "Go!"/><br/>
+         </form>
+      </div>
+      <div>
+   		<form action = "searchPlayableCharacterQuery.php" method = "get">
+   			<input type = "text" name = "search" placeholder="Search Playable Characters"/>
    			<input type = "submit" value = "Go!"/><br/>
    		</form>
    	</div>
    	<div>
-   		<form action = "searchTags.php" method = "post">
-   			<input type = "text" name = "game" placeholder = "Search Tags"/>
+   		<form action = "searchPlatformQuery.php" method = "get">
+   			<input type = "text" name = "search" placeholder="Search Platforms"/>
+   			<input type = "submit" value = "Go!"/><br/>
+   		</form>
+   	</div>
+   	<div>
+   		<form action = "searchTagTypeQuery.php" method = "get">
+   			<input type = "text" name = "search" placeholder = "Search Tags"/>
    			<input type = "submit" value = "Go!"/><br/>
    		</form>
    	</div>
       <div>
-         <form action = "searchCollection.php" method = "post">
-            <input type = "text" name = "game" placeholder = "Search Franchises"/>
+         <form action = "searchCollectionQuery.php" method = "get">
+            <input type = "text" name = "search" placeholder = "Search Franchises"/>
             <input type = "submit" value = "Go!"/><br/>
          </form>
       </div>
