@@ -1,9 +1,10 @@
 /* Reset By aladin ben sassi https://codepen.io/Eliteware/full/BoBgq*V/
 *{margin:0;padding:0;}
-
+*/
 body{
-  min-width:900px;
+  background-color: lightgrey;
 }
+
 /* Slider */
 #slider{
   width:100%;
@@ -23,22 +24,16 @@ body{
 }
 
 
-.navbar sticky-top navbar-expand-lg navbar-dark bg-dark
-{
-  margin: 10px;
-}
-
-
 .slides{
-  width:400%;
+  width:100%;
   height:100%;
   position:relative;
-  -webkit-animation:slide 30s infinite;
-  -moz-animation:slide 30s infinite;
-  animation:slide 30s infinite;
+  -webkit-animation:slide 0s infinite;
+  -moz-animation:slide 0s infinite;
+  animation:slide 0s infinite;
 }
 .slider{
-  width:50%;
+  width:25%;
   height:100%;
   float:left;
   position:relative;
@@ -54,6 +49,7 @@ body{
   height:100%;
 }
 .image{
+  margin: 5px;
   width:100%;
   height:100%;
 }
@@ -122,24 +118,12 @@ body{
   list-style:none;
 }
 
-.icon
+.container1
 {
-  background: url("IMG/icon.jpg");
-  height: 5px;
-  width: 5px;
-  display: block;
-
-}
-
-.container2
-{
-    margin: 10 auto;
-    margin-top: 10px;
-    position: absolute;
-    float: right;
-    width: 50%;
-    background: white;
-}
+  position: relative;
+  float: right;
+  background-color: grey;
+  
 .switch > ul > li{
   width:10px;
   height:10px;
@@ -152,6 +136,7 @@ body{
 .switch ul{
   overflow:hidden;
 }
+
 .on{
   width:100%;
   height:100%;

@@ -26,7 +26,7 @@
    gamesClose($link);
    }
 
-   function myScore() {
+      function myScore() {
       $db = gamesConnect();
          $name = $_SESSION[login_user];
          $sql = "SELECT Users.community_score FROM Users WHERE Users.username = '$name'";
@@ -39,7 +39,6 @@
          }
          
    }
-
 ?>
 
 <!DOCTYPE html>
@@ -49,80 +48,6 @@
      <link href="aladincss.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="container2">
-   <div id="slider"> 
-      <div class="slides">
-
-<!-- First slide --> 
-         <div class="slider">
-            <div class="legend"></div> 
-            <div class="content"> 
-            <div class="content-txt"> 
-               <h1>
-                  <?php
-                  echo $_SESSION['login_user'] 
-                  ?>'s Profile
-               <h2>
-                  How are you today? 
-                  <p>Today's Date: <span id="datetime"></span></p>
-                     <script>
-                     var dt = new Date();
-                     document.getElementById("datetime").innerHTML = dt.toLocaleDateString() +" " +dt.toLocaleTimeString();
-                     </script>
-               <h2>
-
-            </div> 
-         </div> 
-   <div class="images"> 
-   <img src="IMG/slide1.png"> 
-</div> 
-</div> 
-
-<!-- Second slide --> 
-<div class="slider">
-<div class="legend"></div> 
-<div class="content"> 
-<div class="content-txt"> 
-<h1> Your Current Community Score</h1> 
-<h2>
-   <p> Community Score: 
-      <?php
-      echo myScore();
-      ?>
-   </p>
-
-</h2>
-
-</div> 
-</div> 
-<div class="images"> 
-<img src="IMG/slide2.png"> 
-</div> 
-</div> 
-
-<!-- 3rd Slide -->
-<div class="slider">
-<div class="legend"></div> 
-<div class="content"> 
-<div class="content-txt"> 
-<h1> News</h1> 
-</div> 
-</div> 
-<div class="images"> 
-<img src="IMG/slide3.png"> 
-</div> 
-</div> 
-
-
-
-
-</div> 
-</div>
-
-</div>
-
-
-
 <div class="container1">
    <h1>
    Search
@@ -163,9 +88,79 @@
             <button type = "submit">Submit!</button>
          </form>
       </div>
-   <h1>
-   
-   </h1>
+   </div>
+
+<div class="container2">
+   <div id="slider"> 
+      <div class="slides">
+
+      <!-- First slide --> 
+               <div class="slider">
+                  <div class="legend"></div> 
+                     <div class="content"> 
+                        <div class="content-txt"> 
+                            <h1>
+                            <?php
+                            echo $_SESSION['login_user'] 
+                           ?>'s Profile
+                           </h1>
+                            <h2>
+                            How are you today? 
+                           <p>Today's Date: <span id="datetime"></span></p>
+                           <script>
+                           var dt = new Date();
+                           document.getElementById("datetime").innerHTML = dt.toLocaleDateString() +" " +dt.toLocaleTimeString();
+                           </script>
+                           </h2>
+                       </div> 
+                     </div> 
+                  <div class="images"> 
+                  <img src="IMG/slide1.png"> 
+                  </div> 
+            </div> 
+
+      <!-- Second slide --> 
+      <div class="slider">
+         <div class="legend"></div> 
+            <div class="content"> 
+               <div class="content-txt"> 
+                  <h1> Your Current Community Score</h1> 
+                  <h2>
+                     <p> Community Score: 
+                        <?php
+                        echo myScore();
+                        ?>
+                     </p>
+               </h2>
+            </div> 
+            </div> 
+            <div class="images"> 
+               <img src="IMG/slide2.png"> 
+            </div> 
+         </div> 
+
+      <!--3rd Slide-->
+      <div class="slider">
+         <div class="legend"></div> 
+            <div class="content"> 
+               <div class="content-txt"> 
+                  <h1> News</h1> 
+               </div> 
+            </div> 
+         <div class="images"> 
+            <img src="IMG/slide3.png"> 
+         </div> 
+      </div> 
+   </div>
+</div>
+</div>
+
+<h1>
+   Top Articles
+   <h2>
+      Lorem ipsum dolor sit amet, ut numquam evertitur per, mea ne sumo enim, at has putant dictas. Graece eripuit usu ad, mei amet recusabo consequat in, quidam blandit sit ei. Duo ea reque homero omittam, qui velit dicit cu. Ut has aliquip mnesarchum. Esse natum putant pro id.
+   </h2>
+</h1>
 
 </body>
 </html>
