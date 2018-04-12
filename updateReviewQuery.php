@@ -9,12 +9,14 @@
 	// Check connection
 
     $sql = "UPDATE `REVIEW` SET  text='$review', score='$score' WHERE game_id='$id' AND username='$user'";
+    
 	if (!mysqli_query($con,$sql))
 	{
 	die('Error: ' . mysqli_error($con));
+	} else {
+		echo "Success!";
+		echo "<a href=\"myProfile.php\"> Go back to your profile </a> ";
 	}
-	else
-	echo "1 record updated";
 
 	gamesClose($con)
 ?>
