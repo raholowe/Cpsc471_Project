@@ -73,7 +73,7 @@ include('session.php');
 </div>
 <br><br>
 <h5> Add a Developer </h5>
-	<form action = "createGameQuery.php" method = "post" id = "createGame">
+	<form action = "createDeveloperQuery.php" method = "post" id = "createGame">
 		<label>Name:</label><input type = "text" name = "dev_name" required /><br>
 		<label>Lead:</label><input type = "text" name = "lead"  /><br>
 		<label>Team Size:</label><input type = "number" name = "team_size"  /><br>

@@ -8,13 +8,28 @@
 	$con=gamesConnect();
 	// Check connection
 
+	if($lead == "") {
+		$lead = "NULL";
+	} else {
+		$lead = "\"" . $lead . "\"";
+	}
+	if($teamsize == "") {
+		$teamsize = "NULL";
+	}
+	if($region == "") {
+		$region = "NULL";
+	} else {
+	 	$region = "\"" . $region . "\"";
+	}
+
 	$sql = "INSERT INTO `DEVELOPER` (`dev_name`, `lead`, `team_size`, `region`) VALUES ('$devName','$lead', '$teamsize', '$region')";
 	if (!mysqli_query($con,$sql))
 	{
 	die('Error: ' . mysqli_error($con));
+	} else {
+		echo "Success!";
+		echo "<a href=\"add.php\"> Go back </a> ";
 	}
-	else
-	echo "1 record added";
 
 	gamesClose($con)
 ?>

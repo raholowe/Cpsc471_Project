@@ -97,8 +97,7 @@ if($count == 0) {
 		if($_SESSION['permission'] == 1) {
 			echo "<td>";
 		echo "<form action = \"deleteGameQuery.php\" method = \"post\">
-				<input type=\"hidden\" name=\"ID\" value=\"";
-		echo $row['ID'] ."\">
+				<input type=\"hidden\" name=\"ID\" value=\"" . $row['ID'] ."\">
 				<button type=\"submit\" name=\"delete_game\" >Delete</button>
 			</form>";
 		echo "</td>";
