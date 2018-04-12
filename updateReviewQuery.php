@@ -8,7 +8,7 @@
 	$con=gamesConnect();
 	// Check connection
 
-    $sql = "UPDATE `REVIEW` SET  text='$review', score='$score' WHERE game_id='$id' AND text='$review'";
+    $sql = "UPDATE `REVIEW` SET  text='$review', score='$score' WHERE game_id='$id' AND username='$user'";
 	if (!mysqli_query($con,$sql))
 	{
 	die('Error: ' . mysqli_error($con));
