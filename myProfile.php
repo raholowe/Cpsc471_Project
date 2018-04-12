@@ -13,6 +13,47 @@
    		}
    		
 	}
+	function myReviews() {
+		$db = gamesConnect();
+	   	$name = $_SESSION[login_user];
+
+	   	$sql = "SELECT *
+				FROM
+				    REVIEW
+				INNER JOIN GAME on REVIEW.game_id = GAME.ID
+				WHERE REVIEW.username = \"$name\" " ;
+		
+		$table = mysqli_query($db, $sql);
+
+		$count = mysqli_num_rows($table);
+
+		if($count == 0) {
+		echo "<br>You have no reviews <br>";
+		} else {
+		echo "<br><table border='1'>" ;
+		echo '<tr>
+				<th>Title</th>
+				<th>Review</th>
+				<th>Score</th>
+
+				</tr>';
+			while($row = mysqli_fetch_array($table) )
+			{
+				$goto = "view_game_details.php?key=" . $row['ID'];
+				echo "<tr>";
+				echo "<td><a href=".$goto.">". $row['title'] . "</a>" . "</td>";
+				
+				echo "<td>". $row['text'] . "</td>";
+				
+				echo "<td>" . $row['score'] . "</td>";
+				echo "</tr>";
+			}
+		}
+		echo "</table>";
+
+   	gamesClose($db);
+   }
+
    function myGames() {
    	$db = gamesConnect();
    	$name = $_SESSION[login_user];
@@ -44,9 +85,6 @@
 	}
 	echo "</table>";
 
-	if($_SESSION['permission'] == 1) {
-	echo "<a href = \"add.php\"> Manage the database </a>";
-	}
    	gamesClose($db);
    }
    
@@ -69,6 +107,10 @@
 
    		<?php
    		myGames();
+   		?>
+   		<h2> My Reviews </h2>
+   		<?php
+   		myReviews();
    		?>
    	</div>
     
