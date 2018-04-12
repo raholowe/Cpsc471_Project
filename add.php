@@ -18,7 +18,7 @@ include('session.php');
 		<label>Starting Community Score:</label><input type="number" name="community_score" min="0" required><br/>
 		<input type = "submit" value = " Create a User Account"/><br />
 	</form>
-	<a href="deleteUser?mode=ASC&col=username">Delete a user</a>
+	<a href="deleteUser?mode=ASC&col=username">Delete or Edit a user</a>
 </div>
 <br><br>
 <div>
@@ -69,36 +69,39 @@ include('session.php');
 		<label>Release Date:</label><input type = "date" name = "release_date"  /><br>
 		<input type = "submit" value = " Add Game "/>
 	</form>
-	<a href="view_all_games.php?mode=ASC&col=title">Delete a Game</a>
+	<a href="view_all_games.php?mode=ASC&col=title">Delete or edit a Game</a>
 </div>
 <br><br>
+<div>
 <h5> Add a Developer </h5>
-	<form action = "createDeveloperQuery.php" method = "post" id = "createGame">
+	<form action = "createDeveloperQuery.php" method = "post" id = "createDev">
 		<label>Name:</label><input type = "text" name = "dev_name" required /><br>
 		<label>Lead:</label><input type = "text" name = "lead"  /><br>
 		<label>Team Size:</label><input type = "number" name = "team_size"  /><br>
 		<label>Region:</label><input type = "text" name = "region"  /><br>
 		<input type = "submit" value = " Add Developer "/>
 	</form>
-	<a href="view_all_dev.php?mode=ASC&col=title">Delete a Developer</a>
+	<a href="view_all_dev.php?mode=ASC&col=title">Delete or edit a Developer</a>
 </div>
 <br><br>
 <div>
-<form action = "createUserQuery.php" method = "post">
-  <label>Username  :</label><input type = "text" name = "username" required /><br /><br />
-  <label>Password  :</label><input type = "password" name = "password" required /><br/><br />
-  <label>Email  :</label><input type = "text" name = "email" required /><br/><br />
-  <input type = "submit" value = " Create Account "/><br />
-</form>
+<h5> Add a Publisher </h5>
+	<form action = "createPublisherQuery.php" method = "post" id = "createPub">
+		<label>Name:</label><input type = "text" name = "pub_name" required /><br>
+		<label>Region:</label><input type = "text" name = "region"  /><br>
+		<input type = "submit" value = " Add Publisher "/>
+	</form>
+	<a href="view_all_pub.php?mode=ASC&col=title">Delete or edit a Publisher</a>
 </div>
 <br><br>
 <div>
-<form action = "createUserQuery.php" method = "post">
-  <label>Username  :</label><input type = "text" name = "username" required /><br /><br />
-  <label>Password  :</label><input type = "password" name = "password" required /><br/><br />
-  <label>Email  :</label><input type = "text" name = "email" required /><br/><br />
-  <input type = "submit" value = " Create Account "/><br />
-</form>
+<h5> Add a Game Collection </h5>
+	<form action = "createCollectionQuery.php" method = "post" id = "createCollection">
+		<label>Name:</label><input type = "text" name = "pub_name" required /><br>
+		<label>Region:</label><input type = "text" name = "region"  /><br>
+		<input type = "submit" value = " Add Publisher "/>
+	</form>
+	<a href="view_all_pub.php?mode=ASC&col=title">Delete or edit a Game Collection</a>
 </div>
  <?php
  include('footer.php');
