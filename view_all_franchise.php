@@ -17,8 +17,12 @@ if($count == 0) {
 	echo "<table border = '1'>
 			<tr>
 			<th>Name</th>
-			<th>Number of Games</th>
-			</tr>";
+			<th>Number of Games</th>";
+	if($_SESSION['permission'] == 1) {
+		echo "<th> Delete </th>";
+		echo "<th> Edit </th>";
+	}
+	echo "</tr>";
 
 	while($row = mysqli_fetch_array($table) )
 	{
@@ -39,6 +43,22 @@ if($count == 0) {
 		$result = mysqli_query($db, $fQ);
 		$data = mysqli_fetch_assoc($result);
 		echo "<td>" . $data['total'] . "</td>";
+		if($_SESSION['permission'] == 1) {
+		
+		echo "<td>";
+		echo "<form action = \"deleteCollectionQuery.php\" method = \"post\">
+				<input type=\"hidden\" name=\"ID\" value=\"" . $row['ID'] ."\">
+				<button type=\"submit\" name=\"delete_collection\" >Delete</button>
+			</form>";
+		echo "</td>";
+
+			echo "<td>";
+		echo "<form action = \"editCollection.php\" method = \"post\">
+				<input type=\"hidden\" name=\"ID\" value=\"". $row['ID'] ."\">
+				<button type=\"submit\" name=\"edit_collection\" >Edit</button>
+			</form>";
+		echo "</td>";
+	}
 		echo "</tr>";
 	}
 

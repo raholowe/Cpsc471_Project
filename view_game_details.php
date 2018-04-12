@@ -14,9 +14,22 @@ $name = $_SESSION[login_user];
 $doesExist = " SELECT game_id from PLAYED_BY WHERE PLAYED_BY.username = '$name' AND PLAYED_BY.game_id = '$gameID' ";
 $bool = mysqli_query($db,$doesExist);
 if( mysqli_num_rows($bool) == 0 ){
-	$goto = "addToMyGames.php?ID=".$gameID;
+	$goto = "addToMyGames.php?ID=".$gameID . "&username=".$name;
 	echo "<h4> <a href=".$goto.">+ Add to My Games</a></h4>";
 } else {
+	$goto = "myProfile.php";
+	echo "<h4> <a href=".$goto.">In your games </a></h4>";
+
+}
+
+$doesExist = " SELECT game_id from REVIEW WHERE REVIEW.username = '$name' AND REVIEW.game_id = '$gameID' ";
+$bool = mysqli_query($db,$doesExist);
+if( mysqli_num_rows($bool) == 0 ){
+	$goto = "writeReview.php?ID=".$gameID . "&username=" . $name;
+	echo "<h4> <a href=".$goto.">Review this game</a></h4>";
+} else {
+	$goto = "editReview.php?ID=".$gameID . "&username=" . $name;
+	echo "<h4> <a href=".$goto.">Edit your review</a></h4>";
 }
 
 echo "<table border = '1'>

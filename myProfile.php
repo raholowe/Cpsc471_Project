@@ -65,7 +65,7 @@
    	</div>
    	<div>
    		<h2> My Games </h2>
-   		<a href="view_all_games.php"> Add games to your list! </a>
+   		<a href="view_all_games.php?mode=DESC&col=title"> Add games to your list! </a>
 
    		<?php
    		myGames();

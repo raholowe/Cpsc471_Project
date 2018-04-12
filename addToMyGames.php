@@ -1,17 +1,19 @@
 <?php
-	include('session.php');
+	require('config.php');
 	$gID= $_GET["ID"];
-    $user= $_SESSION['login_user'];
+    $user= $_GET['username'];
 	// Create connection
 	$con=gamesConnect();
 	// Check connection
 	$sql = "INSERT INTO PLAYED_BY VALUES ('$gID','$user')";
+	
 	if (!mysqli_query($con,$sql))
 	{
 	die('Error: ' . mysqli_error($con));
 	}
 	else {
-		echo "Success! Go to <a  href=\"myProfile.php\">your games</a>";
+		$goto = "view_game_details.php?key=" . $gID;
+		header('location:' . $goto);
 	}
 	
 

@@ -97,12 +97,22 @@ include('session.php');
 <div>
 <h5> Add a Game Collection </h5>
 	<form action = "createCollectionQuery.php" method = "post" id = "createCollection">
-		<label>Name:</label><input type = "text" name = "pub_name" required /><br>
-		<label>Region:</label><input type = "text" name = "region"  /><br>
-		<input type = "submit" value = " Add Publisher "/>
+		<label>Name:</label><input type = "text" name = "name" required /><br>
+		<input type = "submit" value = " Add Collection "/>
 	</form>
-	<a href="view_all_pub.php?mode=ASC&col=title">Delete or edit a Game Collection</a>
+	<a href="view_all_franchise.php?mode=ASC&col=title">Delete or edit a Game Collection</a>
 </div>
- <?php
- include('footer.php');
- ?>
+<br><br>
+<div>
+<h5> Add a Platform </h5>
+	<form action = "createPlatformQuery.php" method = "post" id = "createPlatform">
+		<label>Name:</label><input type = "text" name = "plat_name" required ><br>
+		<label>Release Date:</label><input type = "date" name = "release_date" ><br>
+		<label>Manufacturer:</label><input type = "text" name = "company" required ><br>
+		<input type = "submit" value = " Add Platform "/>
+	</form>
+	<a href="view_all_platforms.php?mode=ASC&col=plat_name">Delete or edit a Platform</a>
+</div>
+<?php
+include('footer.php');
+?>
