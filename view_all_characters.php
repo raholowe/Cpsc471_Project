@@ -11,17 +11,20 @@
 	{
 		die('Error: ' . mysqli_error($con));
 	} else {
+
 		
 		$table = mysqli_query($con,$sql);
 		if(mysqli_num_rows($table) == 0) {
 			echo "No characters!";
 		} else {
+			echo "<h1>Viewing All Characters</h1>";
 			echo "<table border = '1'>";
 
 			while($row = mysqli_fetch_array($table) )
 			{
 				echo "<tr>";
-				$goto = "view_playable_detail.php?name=" . $row['character_name'];
+				$char = urlencode($row['character_name']);
+				$goto = "view_playable_detail.php?name=" . $char ;
 				echo "<td><a href=" . $goto . ">". $row['character_name'] ."</a></td>";	
 				echo "<td>". $row['type'] ."</td></tr>";		
 	

@@ -45,7 +45,8 @@ if($count == 0) {
 
 	while($row = mysqli_fetch_array($table)) {
 		echo "<tr>";
-		$goto = "view_platform_details.php?name=" . $row['plat_name']; 
+		$platName = urlencode($row['plat_name']);
+		$goto = "view_platform_details.php?name=" . $platName; 
 
 		echo "<td><a href=" . $goto . ">". $row['plat_name'] ."</td>";
 		echo "<td>" . $row['company'] . "</td>";
