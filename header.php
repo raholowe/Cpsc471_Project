@@ -28,8 +28,11 @@
             					     <a class = "nav-link" href ="welcome.php">Home</a>
             				      </li>
                           <li class="nav-item">
-                        		<a class="nav-link" href="myProfile.php">My Profile</a>
-                        	</li>';
+                            <a class="nav-link" href="communityRank.php">Leaderboard</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="myProfile.php">My Profile</a>
+                          </li>';
 
                           if($_SESSION['permission'] == 1) {
                             echo '<li class="nav-item">

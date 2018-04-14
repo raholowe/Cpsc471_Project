@@ -120,10 +120,6 @@ if($count == 0) {
 }
 echo "</table>";
 
-if($_SESSION['permission'] == 1) {
-		echo "<a href=\"add.php\">Manage Database</a>";
-}
-
 
 gamesClose($db);
 
