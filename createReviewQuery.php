@@ -16,9 +16,9 @@
 	} else {
 		echo "Success!";
 		echo "<a href=\"myProfile.php\"> Go back to your profile </a> ";
-		$sql = "UPDATE Users SET community_score = community_score + 1 WHERE username = \"$user\" ";
+		$sql = "UPDATE Users SET community_score = community_score + 10 WHERE username = \"$user\" ";
 		if(mysqli_query($con, $sql)) {
-			echo "<br>Community Score increased by 1 for that review!";
+			echo "<br>Community Score increased by 10 for that review!";
 		}
 	}
 

@@ -80,12 +80,65 @@ $tag_query = "SELECT DISTINCT TAG_TYPE.type FROM TAG_TYPE WHERE TAG_TYPE.game_id
 $tag_table = mysqli_query($db, $tag_query);
 
 while($tag_row = mysqli_fetch_array($tag_table)) {
-	$goto = "view_gamesByTag.php?tag=" . $tag_row['type'];
+	$string = $tag_row['type'];
+	$string = urlencode($string);
+	$goto = "view_gamesByTag.php?tag=" . $string;
 	echo "<a href=" . $goto . ">";
 	echo $tag_row['type'];
 	echo "</a>, ";
 }
 
+echo "<br><br>My tags: 
+<table border = '1'>
+<tr>
+<th>Tag</th>
+<th>Remove</th>
+<th>Edit</th>
+</tr>";
+
+$tag_query = "SELECT TAG_TYPE.type FROM TAG_TYPE WHERE TAG_TYPE.game_id = " . $row['ID'] . " AND TAG_TYPE.username = \"". $_SESSION['login_user']. "\"";
+$tag_table = mysqli_query($db, $tag_query);
+
+while($tag_row = mysqli_fetch_array($tag_table)) {
+	echo "<tr><td>";
+	$string = $tag_row['type'];
+	$string = urlencode($string);
+	$goto = "view_gamesByTag.php?tag=" . $string;
+	echo "<a href=" . $goto . ">";
+	echo $tag_row['type'];
+	echo "</a>";
+	echo "</td>";
+
+	echo "<td>";
+	echo "<form action = \"deleteTagQuery.php\" method = \"post\">
+			<input type=\"hidden\" name=\"ID\" value=\"" . $row['ID'] ."\">
+			<input type=\"hidden\" name=\"username\" value=\"" . $name . "\">
+			<input type=\"hidden\" name=\"type\" value=\"" . $tag_row['type'] . "\">
+
+			<button type=\"submit\" name=\"remove_tag\" >Remove Tag</button>
+		</form>";
+	echo "</td>";
+
+	echo "<td>";
+	//add Tag 
+	echo "<form action = \"updateTag.php\" method = \"post\">
+			<input type=\"hidden\" name=\"ID\" value=\"". $row['ID'] ."\">
+			<input type=\"hidden\" name=\"username\" value=\"" . $name . "\">
+			<input type=\"hidden\" name=\"type\" value=\"" . $tag_row['type'] . "\">
+
+		<button type=\"submit\" name=\"edit_tag\" >Edit Tag</button>
+		</form>";
+	echo "</td>";
+
+
+	echo "</tr>";
+}
+echo "</table>";
+
+$goto = "addTag.php?ID=" . $gameID;
+		echo "<a href=" . $goto . ">Add a tag";
+		echo "</a>";
+		
 gamesClose($db);
 include('footer.php');
 ?>

@@ -75,8 +75,8 @@
 		echo "<br><table border='1'>" ;
 		echo '<tr>
 				<th>Title</th>
-				<th>Remove</th>';
-				//<th>Add Tags</th>
+				<th>Remove</th>
+				<th>Add Tags</th>';
 
 		echo '</tr>';
 
@@ -94,21 +94,14 @@
 				</form>";
 			echo "</td>";
 
-			//echo "<td>";
-			//echo "<form action = \"addTag.php\" method = \"post\">
-			//		<input type=\"hidden\" name=\"ID\" value=\"". $row['ID'] ."\">
-			//		<button type=\"submit\" name=\"edit_game\" >Add Tags</button>
-			//	</form>";
-			//echo "</td>";
-
-
-
-
-
-
+			echo "<td>";
+			//add Tag 
+			echo "<form action = \"addTag.php\" method = \"get\">
+					<input type=\"hidden\" name=\"ID\" value=\"". $row['ID'] ."\">
+				<button type=\"submit\" name=\"edit_game\" >Add Tags</button>
+				</form>";
+			echo "</td>";
 			echo "</tr>";
-
-
 		}
 
 	}
