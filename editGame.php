@@ -30,10 +30,9 @@ include('session.php');
 			$sql = "SELECT GAME.title FROM GAME WHERE GAME.ID = '$id'";
 			$table = mysqli_query($db,$sql);
 			$row = mysqli_fetch_array($table);
-			echo "\"".$row['title'];
+			echo "\"".$row['title']."\">";
 		?>
-
-		"><br>
+		<br>
 		<label>Developer: </label>
 		<select name="dev_name" form="updateGame" required>
 			<?php

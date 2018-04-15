@@ -42,6 +42,7 @@ while($row = mysqli_fetch_array($table) ) {
 			echo "<td>";
 		echo "<form action = \"editPublisher.php\" method = \"post\">
 				<input type=\"hidden\" name=\"name\" value=\"". $row['pub_name'] ."\">
+				<input type=\"hidden\" name=\"region\" value=\"". $row['region'] ."\">
 				<button type=\"submit\" name=\"edit_game\" >Edit</button>
 			</form>";
 		echo "</td>";

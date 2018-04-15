@@ -5,19 +5,16 @@ include('session.php');
 
 <div>
 	<h5> Edit entry for <?php
-				$id = $_POST['ID'];
-				$db = gamesConnect();
-				$sql = "SELECT GAME.title FROM GAME WHERE GAME.ID = '$id'";
-				$table = mysqli_query($db,$sql);
-				$row = mysqli_fetch_array($table);
-				echo $row['title'];
+				echo $_POST['name'];
 				?>
-
 	</h5>
-	<form action = "createPublisherQuery.php" method = "post" id = "createPub">
-		<label>Name:</label><input type = "text" name = "pub_name" required /><br>
-		<label>Region:</label><input type = "text" name = "region"  /><br>
-		<input type = "submit" value = " Add Publisher "/>
+	<form action = "updatePublisherQuery.php" method = "post" id = "updatePub">
+		<input type = "hidden" name = "oldname" value = <?php echo "\"".$_POST['name']."\"";?>
+	</h5>
+		<label>Name:</label><input type = "text" name = "pub_name" required value= <?php echo "\"".$_POST['name']."\">";?>
+		<br>
+		<label>Region:</label><input type = "text" name = "region" value= <?php echo "\"".$_POST['region']."\">";?><br>
+		<input type = "submit" value = <?php echo "\"Update ".$_POST['name']."\""; ?> >
 	</form>
 
 <?php
