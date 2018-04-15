@@ -1,6 +1,6 @@
 <?php
     require('config.php');
-    $ID= $_POST["ID"]
+    $ID= $_POST["ID"];
     $title= $_POST["title"];
     $copies= $_POST["copies_sold"];
     $date= $_POST["release_date"];
@@ -11,13 +11,14 @@
 	$con=gamesConnect();
 	// Check connection
 
-	$sql = "UPDATE `GAME` SET  title= '$title', copies_sold='$copies',release_date ='$date', collection_id= '$collection', dev_name='$dev', pub_name='$pub' WHERE ID=$ID";
+	$sql = "UPDATE GAME SET title= \"$title\", copies_sold='$copies',release_date ='$date', collection_id = $collection, dev_name=\"$dev\", pub_name=\"$pub\" WHERE ID=$ID";
+	
 	if (!mysqli_query($con,$sql))
 	{
 	die('Error: ' . mysqli_error($con));
+	} else {
+		header("location:view_all_games.php?mode=DESC&col=title");
 	}
-	else
-	echo "1 record updated";
 
-	gamesClose($con)
+	gamesClose($con);
 ?>
