@@ -1,5 +1,5 @@
 <?php
-	require('config.php');
+	include('session.php');
 	$devName= $_POST["dev_name"];
 	$lead = $_POST["lead"];
     $teamsize = $_POST["team_size"];
@@ -29,7 +29,8 @@
 	} else {
 		echo "Success!";
 		echo "<a href=\"add.php\"> Go back </a> ";
+		include('footer.php');
 	}
 
-	gamesClose($con)
+	gamesClose($con);
 ?>

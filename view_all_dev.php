@@ -50,6 +50,9 @@ while($row = mysqli_fetch_array($table) ) {
 	echo "<td>";
 	echo "<form action = \"editDeveloper.php\" method = \"post\">
 			<input type=\"hidden\" name=\"dev_name\" value=\"". $row['dev_name'] ."\">
+			<input type=\"hidden\" name=\"region\" value=\"" . $row['region'] ."\">
+			<input type=\"hidden\" name=\"team_size\" value=\"" . $row['team_size'] ."\">
+			<input type=\"hidden\" name=\"lead\" value=\"" . $row['lead'] ."\">
 			<button type=\"submit\" name=\"edit_dev\" >Edit</button>
 		</form>";
 	echo "</td></tr>";

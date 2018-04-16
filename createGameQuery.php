@@ -1,5 +1,5 @@
 <?php
-    require('config.php');
+	include('session.php');
     $title= $_POST["title"];
     $copies= $_POST["copies_sold"];
     $date= $_POST["release_date"];
@@ -34,7 +34,8 @@
 	else {
 		echo "Success!";
 		echo "<a href=\"add.php\"> Go back </a> ";
+		include('footer.php');
 	}
 
-	gamesClose($con)
+	gamesClose($con);
 ?>

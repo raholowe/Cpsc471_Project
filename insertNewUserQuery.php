@@ -1,5 +1,5 @@
 <?php
-	require('config.php');
+	include('session.php');
 	$username = $_POST["username"];
 	$email = $_POST["email"];
 	$password = $_POST["password"];
@@ -17,10 +17,12 @@
 	{
 		echo mysqli_error($con);
 		echo "<a href=\"add.php\"> Go back </a> ";
+		include('footer.php');
 	}
 	else {
 		echo "Success!";
 		echo "<a href=\"add.php\"> Go back </a> ";
+		include('footer.php');
 	
 	}
 	gamesClose($con)
