@@ -55,6 +55,7 @@ if($count == 0) {
 			echo "<td>";
 		echo "<form action = \"editCollection.php\" method = \"post\">
 				<input type=\"hidden\" name=\"ID\" value=\"". $row['ID'] ."\">
+				<input type=\"hidden\" name=\"name\" value=\"". $row['name'] ."\">
 				<button type=\"submit\" name=\"edit_collection\" >Edit</button>
 			</form>";
 		echo "</td>";

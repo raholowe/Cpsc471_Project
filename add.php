@@ -107,7 +107,7 @@ include('session.php');
 <h5> Add a Platform </h5>
 	<form action = "createPlatformQuery.php" method = "post" id = "createPlatform">
 		<label>Name:</label><input type = "text" name = "plat_name" required ><br>
-		<label>Release Date:</label><input type = "date" name = "release_date" ><br>
+		<label>Release Date:</label><input type = "date" name = "release_date" required><br>
 		<label>Manufacturer:</label><input type = "text" name = "company" required ><br>
 		<input type = "submit" value = " Add Platform "/>
 	</form>

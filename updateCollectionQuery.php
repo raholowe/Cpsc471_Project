@@ -1,5 +1,5 @@
 <?php
-	require('config.php');
+	include('session.php');
     $id= $_POST["ID"];
     $name= $_POST["name"];
 	// Create connection
@@ -10,9 +10,10 @@
 	if (!mysqli_query($con,$sql))
 	{
 	die('Error: ' . mysqli_error($con));
+	} else {
+		echo "Success!";
+		echo "<a href=\"view_all_franchise.php\"> Go back </a> ";
+		include('footer.php');
 	}
-	else
-	echo "1 record updated";
-
-	gamesClose($con)
+	gamesClose($con);
 ?>

@@ -11,10 +11,13 @@ echo "<table border = '1'>
 	<th>Name</th>
 	<th>Region</th>
 	<th>Team Size</th>
-	<th>Team Lead</th>
-	<th></th>
-	<th></th>
-	</tr>";
+	<th>Team Lead</th>";
+	if($_SESSION['permission'] == 1) {
+		echo "<th> Delete </th>";
+		echo "<th> Edit </th>";
+	}
+	
+	echo "</tr>";
 
 while($row = mysqli_fetch_array($table) ) {
 	echo "<tr>" ;
@@ -39,8 +42,9 @@ while($row = mysqli_fetch_array($table) ) {
 	} else {
 		echo "<td>" . $row['lead'] . "</td>";
 	}
-	
-	echo "<td>";
+
+	if($_SESSION['permission'] == 1) {
+			echo "<td>";
 	echo "<form action = \"deleteDeveloperQuery.php\" method = \"post\">
 			<input type=\"hidden\" name=\"dev_name\" value=\"" . $row['dev_name'] ."\">
 			<button type=\"submit\" name=\"delete_dev\" >Delete</button>
@@ -54,8 +58,10 @@ while($row = mysqli_fetch_array($table) ) {
 			<input type=\"hidden\" name=\"team_size\" value=\"" . $row['team_size'] ."\">
 			<input type=\"hidden\" name=\"lead\" value=\"" . $row['lead'] ."\">
 			<button type=\"submit\" name=\"edit_dev\" >Edit</button>
-		</form>";
-	echo "</td></tr>";
+		</form></td>";
+	}
+	
+	echo "</tr>";
 
 }
 

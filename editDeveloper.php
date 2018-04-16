@@ -9,7 +9,7 @@ include('session.php');
 				?>
 	</h5>
 
-	<form action = "updateDeveloperQuery.php" method = "post" id = "createDev">
+	<form action = "updateDeveloperQuery.php" method = "post" id = "editDev">
 		<label>Name:</label><input type = "text" name = "dev_name" required value= <?php echo "\"".$_POST['dev_name']."\">";?>
 		<br>
 		<label>Lead:</label><input type = "text" name = "lead" value = <?php echo "\"".$_POST['lead']."\">";?>

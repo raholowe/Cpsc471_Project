@@ -1,5 +1,5 @@
 <?php
-    require('config.php');
+    include('session.php');
     $id= $_POST["ID"];
     $name= $_POST["name"];
 	// Create connection
@@ -13,6 +13,7 @@
 	} else {
 		echo "Success!";
 		echo "<a href=\"add.php\"> Go back </a> ";
+		include('footer.php');
 	}
-	gamesClose($con)
+	gamesClose($con);
 ?>

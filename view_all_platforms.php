@@ -64,6 +64,8 @@ if($count == 0) {
 			echo "<td>";
 		echo "<form action = \"editPlatform.php\" method = \"post\">
 				<input type=\"hidden\" name=\"plat_name\" value=\"". $row['plat_name'] ."\">
+				<input type=\"hidden\" name=\"release\" value=\"". $row['release_date'] ."\">
+				<input type=\"hidden\" name=\"company\" value=\"". $row['company'] ."\">
 				<button type=\"submit\" name=\"edit_plat\" >Edit</button>
 			</form>";
 		echo "</td>";
