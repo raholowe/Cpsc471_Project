@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 11, 2018 at 09:36 PM
+-- Generation Time: Apr 17, 2018 at 04:48 PM
 -- Server version: 5.7.21
 -- PHP Version: 7.1.7
 
@@ -62,7 +62,7 @@ CREATE TABLE `DEVELOPER` (
 INSERT INTO `DEVELOPER` (`dev_name`, `lead`, `team_size`, `region`) VALUES
 ('2K Games', NULL, NULL, 'North America'),
 ('Nintendo', NULL, NULL, 'Japan'),
-('Square Enix', NULL, NULL, 'Japan');
+('Square Enix', '', '', 'Japan');
 
 -- --------------------------------------------------------
 
@@ -85,10 +85,9 @@ CREATE TABLE `GAME` (
 --
 
 INSERT INTO `GAME` (`ID`, `title`, `copies_sold`, `release_date`, `collection_id`, `dev_name`, `pub_name`) VALUES
-(1, 'Super Mario Bros.', 40240000, '1985-09-13', 1, 'Nintendo', 'Nintendo'),
 (2, 'Super Mario Bros.: The Lost Levels', 2500000, '1986-06-03', 1, 'Nintendo', 'Nintendo'),
 (3, 'Super Mario Bros. 3', NULL, '1990-02-12', 1, 'Nintendo', 'Nintendo'),
-(4, 'Super Mario World', 20610000, '1991-08-13', 1, 'Nintendo', 'Nintendo'),
+(4, 'Super Mario World										', 20610000, '1991-08-13', 1, 'Nintendo', 'Nintendo'),
 (5, 'The Legend of Zelda', NULL, '1986-02-21', 2, 'Nintendo', 'Nintendo'),
 (6, 'Zelda II: The Adventure of Link', NULL, '1987-01-14', 2, 'Nintendo', 'Nintendo'),
 (7, 'The Legend of Zelda: Ocarina of Time', NULL, '1998-11-21', 2, 'Nintendo', 'Nintendo'),
@@ -153,8 +152,7 @@ INSERT INTO `PLAYABLE_CHARACTER` (`character_name`, `game_id`, `age`, `type`) VA
 ('Link', 5, NULL, 'Human'),
 ('Link', 6, NULL, 'Human'),
 ('Link', 7, NULL, 'Human'),
-('Link', 8, NULL, 'Human'),
-('Mario', 1, NULL, 'Human');
+('Link', 8, NULL, 'Human');
 
 -- --------------------------------------------------------
 
@@ -172,16 +170,15 @@ CREATE TABLE `PLAYED_BY` (
 --
 
 INSERT INTO `PLAYED_BY` (`game_id`, `username`) VALUES
-(1, 'admin'),
-(5, 'admin'),
+(3, 'admin'),
+(6, 'admin'),
 (7, 'admin'),
-(9, 'admin'),
-(11, 'admin'),
-(9, 'new'),
-(8, 'user1'),
-(1, 'user2'),
-(3, 'user2'),
-(9, 'user2');
+(8, 'admin'),
+(13, 'admin'),
+(3, 'admin2'),
+(8, 'admin2'),
+(3, 'luke'),
+(8, 'luke');
 
 -- --------------------------------------------------------
 
@@ -245,7 +242,13 @@ CREATE TABLE `REVIEW` (
 --
 
 INSERT INTO `REVIEW` (`game_id`, `username`, `text`, `score`) VALUES
-(1, 'admin', 'The original video game, omg so good', 9);
+(3, 'admin', 'I LOVE THIS GAME THIS IS A LONG EXAMPLE THE QUICK BROWN FOX JUMPED OVER THE LAZY BROWN DOG', 8),
+(5, 'admin2', 'test', 5),
+(7, 'admin', 'So many reviews', 6),
+(8, 'user1', 'Nice', 8),
+(9, 'admin', 'Mark Zuckerburg is the devil', 5),
+(14, 'admin', 'this game taught me how to make friends and fight for a righteous cause', 7),
+(14, 'james', 'I hate this game it is terrible, the characters are dumb\r\ntest\r\ntest\r\ntest\r\ntest\r\ntest\r\ntest', 2);
 
 -- --------------------------------------------------------
 
@@ -275,12 +278,18 @@ CREATE TABLE `TAG_TYPE` (
 --
 
 INSERT INTO `TAG_TYPE` (`game_id`, `username`, `type`) VALUES
-(7, 'admin', 'Adventure'),
-(7, 'admin', 'Puzzler'),
-(13, 'admin', 'RPG'),
+(3, 'admin', 'Ok'),
+(4, 'admin', 'Jumping'),
+(4, 'admin', 'plumbing'),
+(8, 'admin', 'Amazing'),
+(3, 'admin2', 'Fire Flowers'),
+(3, 'admin2', 'Italian Jumping Plumber'),
+(6, 'admin2', 'Adventure'),
+(7, 'admin2', 'Good Music'),
+(8, 'admin2', 'Adventure'),
+(8, 'admin2', 'Wolf'),
 (7, 'user1', 'Adventure'),
-(13, 'user1', 'RPG'),
-(7, 'user2', 'Adventure');
+(13, 'user1', 'RPG');
 
 -- --------------------------------------------------------
 
@@ -302,12 +311,13 @@ CREATE TABLE `Users` (
 --
 
 INSERT INTO `Users` (`username`, `join_date`, `community_score`, `password`, `email`, `isAdmin`) VALUES
-('admin', '2018-04-07', 900, 'admin', 'admin@test.com', 1),
+('admin', '2018-04-12', 8011, 'admin', 'admin', 1),
+('admin2', '2018-04-12', 910, 'admin2', 'admin2', 1),
+('jake', '2018-04-12', 0, 'jake', 'jakel', 0),
 ('james', '2018-04-08', 0, 'paste', 'fake', 0),
-('new', '2018-04-07', 0, 'potatoe', 'newemail', 0),
+('luke', '2018-04-12', 9001, 'luke', 'lukeemail', 1),
 ('root', '2018-04-07', 0, 'cpsc471', '45678ui9', 0),
-('user1', '2018-04-03', 4, 'user1', 'user1@test.com', 0),
-('user2', '2018-04-07', 0, 'testing', 'testing', 0);
+('user1', '2018-04-03', 4, 'user1', 'user1@test.com', 0);
 
 --
 -- Indexes for dumped tables
@@ -402,13 +412,13 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT for table `COLLECTION`
 --
 ALTER TABLE `COLLECTION`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `GAME`
 --
 ALTER TABLE `GAME`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Constraints for dumped tables
